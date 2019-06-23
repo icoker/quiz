@@ -1,1 +1,22 @@
-<h1>Welcome to the Quiz!<h1>
+<br />
+<h1 class="col-10 offset-1">Stop! Who would cross the Bridge of Death must answer me these questions three, ere the other side he see.<h1>
+
+<br />
+
+<div class="booyah-box col-10 offset-1">
+    <h2>Create a new question</h2>
+    <%= simple_form_for @question do |f| %>
+        <%= f.input :questionNumber, label: 'Question #' %>
+        <%= f.input :questionText, label: 'Question Text' %>
+        <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+</div>
+<br />
+<div class="booyah-box col-10 offset-1">
+    <% @questions.each do |question| %>
+        <div>
+            <h3><%= question.questionNumber %>. <%= question.questionText %></h3>
+        </div>
+        <hr />
+    <% end %>
+</div>
